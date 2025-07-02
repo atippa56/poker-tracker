@@ -40,5 +40,4 @@ export interface SessionFormData {
   buy_in: string;
   cash_out: string;
   hours: string;
-  notes: string;
 } 

@@ -15,8 +15,7 @@ const SessionForm: React.FC<SessionFormProps> = ({ onSubmit, loading, onCancel }
     bb_size: '',
     buy_in: '',
     cash_out: '',
-    hours: '',
-    notes: ''
+    hours: ''
   });
 
   const [error, setError] = useState<string | null>(null);
@@ -33,8 +32,7 @@ const SessionForm: React.FC<SessionFormProps> = ({ onSubmit, loading, onCancel }
       bb_size: parseFloat(formData.bb_size) || 0,
       buy_in: parseFloat(formData.buy_in) || 0,
       cash_out: parseFloat(formData.cash_out) || 0,
-      hours: parseFloat(formData.hours) || 0,
-      notes: formData.notes
+      hours: parseFloat(formData.hours) || 0
     };
 
     try {
@@ -47,8 +45,7 @@ const SessionForm: React.FC<SessionFormProps> = ({ onSubmit, loading, onCancel }
         bb_size: '',
         buy_in: '',
         cash_out: '',
-        hours: '',
-        notes: ''
+        hours: ''
       });
     } catch (err) {
       console.error('Session creation error:', err);
@@ -186,34 +183,26 @@ const SessionForm: React.FC<SessionFormProps> = ({ onSubmit, loading, onCancel }
           </div>
         </div>
 
-        <div className="form-group">
-          <label className="form-label">Notes</label>
-          <textarea
-            name="notes"
-            value={formData.notes}
-            onChange={handleChange}
-            className="form-input"
-            rows={3}
-            placeholder="Optional notes about the session..."
-          />
-        </div>
-
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
+        <div style={{ 
+          display: 'flex', 
+          gap: '0.75rem', 
+          marginTop: '1.5rem',
+          justifyContent: 'flex-end'
+        }}>
           {onCancel && (
             <button
               type="button"
               onClick={onCancel}
-              className="btn"
-              style={{ backgroundColor: '#6b7280', color: 'white' }}
+              className="btn btn-secondary"
+              disabled={loading}
             >
               Cancel
             </button>
           )}
-          
           <button
             type="submit"
-            disabled={loading}
             className="btn btn-primary"
+            disabled={loading}
           >
             {loading ? 'Adding...' : 'Add Session'}
           </button>
