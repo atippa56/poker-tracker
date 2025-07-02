@@ -8,7 +8,7 @@ interface SessionListProps {
   loading?: boolean;
 }
 
-const SessionList: React.FC<SessionListProps> = ({ sessions, onDelete, loading }) => {
+const SessionList: React.FC<SessionListProps> = ({ sessions, onDelete, onUpdate, loading }) => {
   const handleDelete = async (id: number) => {
     if (window.confirm('Are you sure you want to delete this session?')) {
       try {
